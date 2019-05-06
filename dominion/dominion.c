@@ -667,7 +667,6 @@ int adventurerEffect(int currentPlayer, struct gameState *state, int drawntreasu
 }
 
 int counsil_roomEffect(int currentPlayer, struct gameState *state, int handPos, int i){
-    int i;
     //+4 Cards
     for (i = 0; i < 4; i++){
 	    drawCard(currentPlayer, state);
