@@ -1,0 +1,54 @@
+_______________________________________________________________________________________________
+______________________________TEST (villageEffect) First Player________________________________
+PASSED: deck decrimented by 1.
+PASSED: hand incrimented by 1.
+PASSED: actions incrimented by 2.
+________________________________________________________________________________________________
+______________________________ TEST (villageEffect) Second Player ______________________________
+PASSED: deck was not changed for second player.
+PASSED: hand was not changed for second player.
+_______________________________________________________________________________________________
+______________________________ TEST (smithyEffect) First Player _______________________________
+FAILED: deck was not decrimented by 3.
+FAILED: hand was not incrimented by 3.
+_______________________________________________________________________________________________
+______________________________ TEST (smithyEffect) Second Player ______________________________
+PASSED: deck was not changed for second player.
+PASSED: hand was not changed for second player.
+____________________________________________________________________________________________________
+______________________________TEST (counsil_roomEffect) First Player________________________________
+PASSED: deck decrimented by 4.
+PASSED: hand incrimented by 4.
+FAILED: numBuys was not incrimented by 1.
+____________________________________________________________________________________________________
+______________________________TEST (counsil_roomEffect) Second Player_______________________________
+PASSED: deck was decrimented 1 by for second player.
+PASSED: hand was incrimented by 1 for second player.
+____________________________________________________________________________________________________
+______________________________TEST (remodelEffect) First Player_____________________________________
+PASSED: hand decrimented by 3.
+PASSED: discard incrimented by 1.
+____________________________________________________________________________________________________
+______________________________TEST (remodelEffect) Second Player____________________________________
+PASSED: hand was not changed for second player.
+PASSED: discard was not changed for second player.
+____________________________________________________________________________________________________
+______________________________TEST (adventurerEffect) First Player__________________________________
+PASSED: no changes were made to state.
+PASSED: no changes were made to state.
+PASSED: no changes were made to state.
+____________________________________________________________________________________________________
+______________________________TEST (adventurerEffect) Second Player_________________________________
+PASSED: no changes were made to state for second player.
+PASSED: no changes were made to state.
+PASSED: no changes were made to state.
+__________________________________________________________________________________________________________________
+______________________________TEST (adventurerEffect) First Player for z = 10_____________________________________
+PASSED: discard was increased by 10 for z = 10.
+______________________________________________________________________________________________________________
+______________________________TEST (adventurerEffect) Second Player z = 10____________________________________
+PASSED: no changes were made to discard for second player.
+File 'dominion.c'
+Lines executed:24.83% of 604
+Creating 'dominion.c.gcov'
+
