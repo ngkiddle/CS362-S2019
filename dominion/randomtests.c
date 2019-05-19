@@ -1,6 +1,10 @@
 #include "randomtestadventurer.h"
+#include "randomtestcard1.h"
+#include "randomtestcard2.h"
 
 int main(){
-    testAdventurer();
+    randomAdventurerTest();
+    randomVillageTest();
+    randomCounsilRoomTest();
     return 0;
 }

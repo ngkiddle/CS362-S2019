@@ -130,5 +130,13 @@ int getWinners(int players[MAX_PLAYERS], struct gameState *state);
 
 int adventurerEffect(int currentPlayer, struct gameState *state, int drawntreasure, int cardDrawn, int temphand, int z);
 
+int counsil_roomEffect(int currentPlayer, struct gameState *state, int handPos, int i);
+
+int remodelEffect(int currentPlayer, struct gameState *state, int choice1, int choice2, int handPos, int i, int j);
+
+int villageEffect(int currentPlayer, struct gameState *state, int handPos);
+
+int smithyEffect(int currentPlayer, struct gameState *state, int handPos, int i);
+
 
 #endif

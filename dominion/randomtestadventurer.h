@@ -1,8 +1,7 @@
-#ifndef _DOMINION_H
-#define _DOMINION_H
+#ifndef _RANDOMTESTADVENTURER_H
+#define _RANDOMTESTADVENTURER_H
 
-int randInt(int,int);
 void randomAdventurerTest();
-int assert(int,int);
+
 
 #endif

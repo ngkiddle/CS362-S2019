@@ -743,7 +743,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
     //uses switch to select card and perform actions
     switch( card ){
         case adventurer:
-            adventurerEffect(currentPlayer, state, drawntreasure, cardDrawn, temphand, z);
+            adventurerEffect(currentPlayer, state, drawntreasure, cardDrawn, temphand[MAX_HAND], z);
 			
         case council_room:
             counsil_roomEffect(currentPlayer, state, handPos, i);

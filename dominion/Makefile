@@ -6,8 +6,17 @@ rngs.o: rngs.h rngs.c
 dominion.o: dominion.h dominion.c rngs.o
 	gcc -c dominion.c -g  $(CFLAGS)
 
-randomtestadventurer: randomtestadventurer.h randomtestadventurer.c dominion.o rngs.o
-	gcc -c randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
+randomtestadventurer.o: randomtestadventurer.h randomtestadventurer.c
+	gcc -c randomtestadventurer.c $(CFLAGS)
+
+randomtestcard1.o: randomtestcard1.h randomtestcard1.c
+	gcc -c randomtestcard1.c $(CFLAGS)
+
+randomtestcard2.o: randomtestcard2.h randomtestcard2.c
+	gcc -c randomtestcard2.c $(CFLAGS)
+
+randomhelpers.o: randomhelpers.h randomhelpers.c
+	gcc -c randomhelpers.c $(CFLAGS)
 
 playdom: dominion.o playdom.c
 	gcc -o playdom playdom.c -g dominion.o rngs.o $(CFLAGS)
@@ -38,10 +47,13 @@ player: player.c interface.o
 
 all: playdom player 
 
-randomtestresults: randomtests.c randomtestadventurer.o dominion.o rngs.o
-	gcc -o rand randomtests.c randomtestadventurer.o -g dominion.o rngs.o $(CFLAGS)
+randomtestresults: randomtests.c randomhelpers.o randomtestcard1.o randomtestcard2.o randomtestadventurer.o dominion.o rngs.o
+	gcc -o rand randomtests.c randomhelpers.o randomtestcard1.o randomtestcard2.o randomtestadventurer.o -g dominion.o rngs.o $(CFLAGS)
 	./rand
 	gcov -bfc dominion.c | grep -A 2 adventurerEffect
+	gcov -bfc dominion.c | grep -A 2 villageEffect
+	gcov -bfc dominion.c | grep -A 2 counsil_roomEffect
+
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe
