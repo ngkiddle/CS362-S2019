@@ -48,11 +48,11 @@ player: player.c interface.o
 all: playdom player 
 
 randomtestresults: randomtests.c randomhelpers.o randomtestcard1.o randomtestcard2.o randomtestadventurer.o dominion.o rngs.o
-	gcc -o rand randomtests.c randomhelpers.o randomtestcard1.o randomtestcard2.o randomtestadventurer.o -g dominion.o rngs.o $(CFLAGS)
-	./rand
-	gcov -bfc dominion.c | grep -A 2 adventurerEffect
-	gcov -bfc dominion.c | grep -A 2 villageEffect
-	gcov -bfc dominion.c | grep -A 2 counsil_roomEffect
+	gcc -o rand randomtests.c randomhelpers.o randomtestcard1.o randomtestcard2.o randomtestadventurer.o -g dominion.o rngs.o $(CFLAGS) > randomtestresults.out
+	./rand >> randomtestresults.out
+	gcov -bfc dominion.c | grep -A 2 adventurerEffect >> randomtestresults.out
+	gcov -bfc dominion.c | grep -A 2 villageEffect >> randomtestresults.out
+	gcov -bfc dominion.c | grep -A 2 counsil_roomEffect >> randomtestresults.out
 
 
 clean:
