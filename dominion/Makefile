@@ -6,6 +6,9 @@ rngs.o: rngs.h rngs.c
 dominion.o: dominion.h dominion.c rngs.o
 	gcc -c dominion.c -g  $(CFLAGS)
 
+randomtestadventurer: randomtestadventurer.h randomtestadventurer.c dominion.o rngs.o
+	gcc -c randomtestadventurer.c dominion.o rngs.o $(CFLAGS)
+
 playdom: dominion.o playdom.c
 	gcc -o playdom playdom.c -g dominion.o rngs.o $(CFLAGS)
 #To run playdom you need to entere: ./playdom <any integer number> like ./playdom 10*/
@@ -34,6 +37,11 @@ player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
 all: playdom player 
+
+randomtestresults: randomtests.c randomtestadventurer.o dominion.o rngs.o
+	gcc -o rand randomtests.c randomtestadventurer.o -g dominion.o rngs.o $(CFLAGS)
+	./rand
+	gcov -bfc dominion.c | grep -A 2 adventurerEffect
 
 clean:
 	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe
