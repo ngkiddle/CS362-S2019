@@ -18,6 +18,25 @@ badTestDrawCard: badTestDrawCard.c dominion.o rngs.o
 testBuyCard: testDrawCard.c dominion.o rngs.o
 	gcc -o testDrawCard -g  testDrawCard.c dominion.o rngs.o $(CFLAGS)
 
+randomtestadventurer.o: randomtestadventurer.h randomtestadventurer.c
+	gcc -c randomtestadventurer.c $(CFLAGS)
+
+randomtestcard1.o: randomtestcard1.h randomtestcard1.c
+	gcc -c randomtestcard1.c $(CFLAGS)
+
+randomtestcard2.o: randomtestcard2.h randomtestcard2.c
+	gcc -c randomtestcard2.c $(CFLAGS)
+
+randomhelpers.o: randomhelpers.h randomhelpers.c
+	gcc -c randomhelpers.c $(CFLAGS)
+	
+randomtestresults: randomtests.c randomhelpers.o randomtestcard1.o randomtestcard2.o randomtestadventurer.o dominion.o rngs.o
+	gcc -o rand randomtests.c randomhelpers.o randomtestcard1.o randomtestcard2.o randomtestadventurer.o -g dominion.o rngs.o $(CFLAGS) > randomtestresults.out
+	./rand >> randomtestresults.out
+	gcov -bfc dominion.c | grep -A 2 adventurerEffect >> randomtestresults.out
+	gcov -bfc dominion.c | grep -A 2 villageEffect >> randomtestresults.out
+	gcov -bfc dominion.c | grep -A 2 counsil_roomEffect >> randomtestresults.out
+
 testAll: dominion.o testSuite.c
 	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
 
