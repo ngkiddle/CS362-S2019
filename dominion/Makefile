@@ -37,6 +37,30 @@ randomtestresults: randomtests.c randomhelpers.o randomtestcard1.o randomtestcar
 	gcov -bfc dominion.c | grep -A 2 villageEffect >> randomtestresults.out
 	gcov -bfc dominion.c | grep -A 2 counsil_roomEffect >> randomtestresults.out
 
+unittest_helpers.o: unittest_helpers.h unittest_helpers.c dominion.o rngs.o*
+	gcc -c unittest_helpers.c dominion.o rngs.o $(CFLAGS)
+
+unittest1.o: unittest1.h unittest1.c unittest_helpers.o dominion.o rngs.o*  
+	gcc -c unittest1.c unittest_helpers.o dominion.o rngs.o $(CFLAGS)
+
+unittest2.o: unittest2.h unittest2.c unittest_helpers.o dominion.o rngs.o*  
+	gcc -c unittest2.c unittest_helpers.o dominion.o rngs.o $(CFLAGS)
+
+unittest3.o: unittest3.h unittest3.c unittest_helpers.o dominion.o rngs.o*  
+	gcc -c unittest3.c unittest_helpers.o dominion.o rngs.o $(CFLAGS)
+
+unittest4.o: unittest4.h unittest4.c unittest_helpers.o dominion.o rngs.o*  
+	gcc -c unittest4.c unittest_helpers.o dominion.o rngs.o $(CFLAGS)
+
+cardtest1.o: cardtest1.h cardtest1.c unittest_helpers.o dominion.o rngs.o*  
+	gcc -c cardtest1.c unittest_helpers.o dominion.o rngs.o $(CFLAGS)
+
+unittestresult: unittests.c  unittest_helpers.o unittest1.o unittest2.o unittest3.o unittest4.o cardtest1.o dominion.o rngs.o*  
+	gcc -o unittest -g unittests.c unittest_helpers.o unittest1.o unittest2.o unittest3.o unittest4.o cardtest1.o dominion.o rngs.o $(CFLAGS)
+	./unittest > unittestresult.out
+	gcov dominion.c >> unittestresult.out
+
+
 testAll: dominion.o testSuite.c
 	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
 

@@ -1,0 +1,42 @@
+_______________________________________________________________________________________________
+______________________________TEST (villageEffect) First Player________________________________
+FAILED: deck was not decrimented by 1.
+FAILED: hand was not incrimented by 1.
+PASSED: actions incrimented by 2.
+________________________________________________________________________________________________
+______________________________ TEST (villageEffect) Second Player ______________________________
+PASSED: deck was not changed for second player.
+PASSED: hand was not changed for second player.
+_______________________________________________________________________________________________
+______________________________ TEST (smithyEffect) First Player _______________________________
+FAILED: deck was not decrimented by 3.
+FAILED: hand was not incrimented by 3.
+_______________________________________________________________________________________________
+______________________________ TEST (smithyEffect) Second Player ______________________________
+PASSED: deck was not changed for second player.
+PASSED: hand was not changed for second player.
+____________________________________________________________________________________________________
+______________________________TEST (adventurerEffect) First Player__________________________________
+FAILED: no changes were made to state.
+FAILED: no changes were made to state.
+PASSED: no changes were made to state.
+____________________________________________________________________________________________________
+______________________________TEST (adventurerEffect) Second Player_________________________________
+PASSED: no changes were made to state for second player.
+PASSED: no changes were made to state.
+PASSED: no changes were made to state.
+__________________________________________________________________________________________________________________
+______________________________TEST (adventurerEffect) First Player for z = 10_____________________________________
+PASSED: discard was increased by 10 for z = 10.
+______________________________________________________________________________________________________________
+______________________________TEST (adventurerEffect) Second Player z = 10____________________________________
+PASSED: no changes were made to discard for second player.
+Function 'adventurerCardEffect'
+Lines executed:100.00% of 15
+No branches
+Function 'villageCardEffect'
+Lines executed:100.00% of 6
+No branches
+Function 'smithyCardEffect'
+Lines executed:100.00% of 5
+No branches
